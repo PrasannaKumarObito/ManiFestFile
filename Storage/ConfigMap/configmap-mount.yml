@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-app
+data:
+  APP_ENV: "Production"
+  LOG_Level: "warn"
+  DB_HOST: "postgres.default.svc.cluster.local"
+  nginx.conf: |
+    server {
+      listen 80;
+      location / {
+        proxy_pass http://localhost:3000;
+      }
+    }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: web
+        image: nginx
+        ports:
+        - containerPort: 80
+        env:
+         - name: Service-name
+           valueFrom:
+              configMapKeyRef:
+              name: web-app
+              key: APP_ENV
+        volumeMounts:
+         - name: nginx-config
+           mountPath: /devops
+      volumes:
+       - name: nginx-config
+         configMap:
+          name: web-app       
+
+
