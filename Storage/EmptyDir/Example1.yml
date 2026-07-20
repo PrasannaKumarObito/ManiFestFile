@@ -18,6 +18,8 @@ spec:
   
   - name: httpd
     image: httpd
+    ports:
+    - containerPort: 8000
     volumeMounts:
     - mountPath: "/devops"
       name: emptydir-volume
