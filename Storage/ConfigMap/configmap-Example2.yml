@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: config-map
+spec:
+  containers:
+  - name: config-map
+    image: nginx
+    ports:
+      - containerPort: 80
+    env:
+      - name: Configmap-pod-1
+        volumeFrom:
+          configMapKeyRef:
+            name: cm
+            key: APP_ENV
+      - name: Configmap-pod-2
+        volumeFrom:
+          configMapKeyRef:
+            name: config-map
+            key: Cicd 
+      - name: Configmap-pod-3
+        volumeFrom:
+          configMapKeyRef:
+            name: cm3
+            key: env
