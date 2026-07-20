@@ -16,10 +16,8 @@ spec:
       - mountPath: "/flm"
         name: emptydir-volume
   
-  - name: httpd
-    image: httpd
-    ports:
-    - containerPort: 8000
+  - name: nginx
+    image: nginx
     volumeMounts:
     - mountPath: "/devops"
       name: emptydir-volume
