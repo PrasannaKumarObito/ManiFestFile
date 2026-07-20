@@ -12,7 +12,7 @@ spec:
       - name: Configmap-pod-1
         valueFrom:
           configMapKeyRef:
-            name: cm
+            name: configmap1
             key: APP_ENV
       - name: Configmap-pod-2
         valueFrom:
