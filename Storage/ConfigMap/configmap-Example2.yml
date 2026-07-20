@@ -6,8 +6,6 @@ spec:
   containers:
   - name: config-map
     image: nginx
-    ports:
-      - containerPort: 80
     env:
       - name: Configmap-pod-1
         volumeFrom:
