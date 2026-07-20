@@ -4,6 +4,7 @@ metadata:
   name: emptydir
   labels:
     env: prod
+
 spec:
   volumes:
   - name: emptydir-volume
@@ -13,12 +14,18 @@ spec:
   - name: nginx
     image: nginx
     volumeMounts:
-      - mountPath: "/flm"
-        name: emptydir-volume
-  
-  - name: nginx
+    - mountPath: "/flm"
+      name: emptydir-volume
+
+  - name: devops
     image: nginx
+    command: ["/bin/bash", "-c"]
+    args:
+    - |
+      while true; do
+        echo "welcome to devops class"
+        sleep 5
+      done
     volumeMounts:
     - mountPath: "/devops"
       name: emptydir-volume
-
