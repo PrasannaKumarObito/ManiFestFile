@@ -10,17 +10,17 @@ spec:
       - containerPort: 80
     env:
       - name: Configmap-pod-1
-        valumeFrom:
+        valueFrom:
           configMapKeyRef:
             name: cm
             key: APP_ENV
       - name: Configmap-pod-2
-        valumeFrom:
+        valueFrom:
           configMapKeyRef:
             name: config-map
             key: Cicd 
       - name: Configmap-pod-3
-        valumeFrom:
+        valueFrom:
           configMapKeyRef:
             name: cm3
             key: env
