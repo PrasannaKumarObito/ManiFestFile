@@ -33,9 +33,9 @@ spec:
         ports:
         - containerPort: 80
         env:
-         - name: Service-name
-           valueFrom:
-              configMapKeyRef:
+        - name: Service-name
+          valueFrom:
+            configMapKeyRef:
               name: web-app
               key: APP_ENV
         volumeMounts:
