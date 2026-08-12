@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: Obito-ingress
 spec:
-  ingressClassName:
+  ingressClassName: nginx
   rules:
    - httpd:
       paths:
