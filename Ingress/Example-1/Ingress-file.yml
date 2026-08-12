@@ -1,24 +1,29 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: oito-ingress
+  name: obito-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+
 spec:
   ingressClassName: nginx
-  rules:
-   - http:
-      paths:
-      - path: /nginx
-        pathType: Prefix
-        backend:
-          service:
-            name: nginx-svc
-            port: 
-              number: 80
 
-      - path: /httpd
-        pathType: Prefix
-        backend:
-          service:
-            name: httpd-svc
-            port: 
-              number: 80
+  rules:
+    - http:
+        paths:
+          - path: /nginx(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-svc
+                port:
+                  number: 80
+
+          - path: /httpd(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: httpd-svc
+                port:
+                  number: 80
