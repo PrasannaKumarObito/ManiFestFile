@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: Obito-ingress
+spec:
+  ingressClassName:
+  rules:
+   - httpd:
+      paths:
+      - path: /nginx
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-svc
+            port: 
+              number: 80
+
+      - path: /httpd
+        pathType: Prefix
+        backend:
+          service:
+            name: httpd-svc
+            port: 
+              number: 80
