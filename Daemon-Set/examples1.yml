@@ -3,7 +3,7 @@ kind: DaemonSet
 metadata:
  name: daemon-set
 spec:
- Selector:
+ selector:
   matchLabels:
    app: daemon-set
  template:
