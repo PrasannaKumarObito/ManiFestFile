@@ -17,6 +17,8 @@ kind: Service
 metadata:
   name: lb-service
   namespace: dev-ns
+  annotaion: 
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
 spec:
   type: LoadBalancer
   selector:
