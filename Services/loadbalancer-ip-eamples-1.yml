@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
     - name: obito-4
-      image: shaikmustafa:dm
+      image: shaikmustafa/dm
       ports:
         - containerPort: 80
 ---
