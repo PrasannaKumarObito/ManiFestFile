@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ns-pod
+  namespace: dev-ns
+spec:
+  containers:
+    - name: obito
+      image: shaikmustafa/dm
+      ports:
+       - containerPort: 80
