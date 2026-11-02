@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: clusterip-pod
+  namespace: dev-ns
+  labels:
+    app: clusterip
+spec:
+  containers:
+    - name: obito-1
+      image: shaikmustafa/dm
+      ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: cluster-server
+   namespace: dev-ns
+spec:
+  type: ClusterIP
+  selector:
+     app: clusterip
+  ports:
+    - port: 80
+      targetPort: 80
+
+
