@@ -21,7 +21,7 @@ spec:
           ports:
            - containerPort: 80
 ---
-apiVersion:
+apiVersion: v1
 kind: Service
 metadata:
   name: rs-svc
