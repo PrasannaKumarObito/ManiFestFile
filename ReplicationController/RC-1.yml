@@ -24,7 +24,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rc-svc
-  namespacc: dev-ns
+  namespace: dev-ns
 spec:
   type: LoadBalancer
   selector:
