@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: RelicaSet
+kind: ReplicaSet
 metadata:
   name: rs-ns-pod
   namespace: dev-ns
