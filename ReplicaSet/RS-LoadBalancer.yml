@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: RelicaSet
+metadata:
+  name: rs-lb-pod
+  namespace: dev-ns
+  labels:
+    app: rs-lb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rs-lb
+  template:
+    metadata:
+      labels:
+        app: rs-lb
+    spec:
+      containers:
+        - name: obito13
+          image: shaikmustafa/cycle
+          ports:
+           - containerPort: 80
+---
+apiVersion:
+kind: Service
+metadata:
+  name: rs-svc
+  namespace: dev-ns
+spec:
+  type: ClusterIP
+  selector:
+    app: rs-lb
+  ports:
+    - port: 80
+      targetPort: 80

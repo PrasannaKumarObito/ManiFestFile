@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: RelicaSet
+metadata:
+  name: rs-cip-pod
+  namespace: dev-ns
+  labels:
+    app: rs-cip
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rs-cip
+  template:
+    metadata:
+      labels:
+        app: rs-cip
+    spec:
+      containers:
+        - name: obito13
+          image: shaikmustafa/cycle
+          ports:
+           - containerPort: 80
+---
+apiVersion:
+kind: Service
+metadata:
+  name: rs-svc
+  namespace: dev-ns
+spec:
+  type: ClusterIP
+  selector:
+    app: rs-cip
+  ports:
+    - port: 80
+      targetPort: 80
