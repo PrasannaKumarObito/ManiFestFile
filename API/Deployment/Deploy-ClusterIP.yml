@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-pod-cip
+  namespace: dev-ns
+  labels:
+    app: pod-cip
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pod-cip
+  template:
+    metadata:
+      labels:
+        app: pod-cip
+    spec:
+      containers:
+        - name: obito-1
+          image: shaikmustafa/cycle
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-cip
+  namespace: dev-ns
+spec:
+  type: ClusterIP
+  selector:
+    app: pod-cip
+  ports:
+   - port: 80
+     targetPort: 80

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-pod-lb
+  namespace: dev-ns
+  labels:
+    app: pod-lb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pod-lb
+  template:
+    metadata:
+      labels:
+        app: pod-lb
+    spec:
+      containers:
+        - name: obito-1
+          image: shaikmustafa/cycle
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-lb
+  namespace: dev-ns
+spec:
+  type: LoadBalancer
+  selector:
+    app: pod-lb
+  ports:
+   - port: 80
+     targetPort: 80
