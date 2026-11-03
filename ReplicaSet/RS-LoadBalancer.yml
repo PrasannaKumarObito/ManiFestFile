@@ -27,7 +27,7 @@ metadata:
   name: rs-svc-lb
   namespace: dev-ns
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: rs-lb
   ports:
