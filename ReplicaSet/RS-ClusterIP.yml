@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rs-svc
+  name: rs-svc-cip
   namespace: dev-ns
 spec:
   type: ClusterIP
