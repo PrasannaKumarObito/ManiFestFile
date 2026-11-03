@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: obito-prasanna
-      image: shaikmustafa/dm
+      image: shaikmustafa/cycle
       ports:
         - containerPort: 80
 ---
