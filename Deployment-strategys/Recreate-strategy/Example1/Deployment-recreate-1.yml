@@ -4,7 +4,7 @@ metadata:
   name: dep-recreate
   namespace: dev-ns
   annotations:
-    change-cause: "deployment withh dm application"
+    kubernetes.io/change-cause: "Deployment with DM application"
   labels:
     app: recreate
 spec:
