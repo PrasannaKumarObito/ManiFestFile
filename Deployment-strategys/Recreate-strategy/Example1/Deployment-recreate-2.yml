@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-recreate
+  namespace: dev-ns
+  annotations:
+    change-cause: "deployment withh cycle application"
+  labels:
+    app: recreate
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 5
+  minReadySeconds: 5 
+  selector:
+    matchLabels:
+      app: recreate
+  template:
+    metadata:
+      labels:
+        app: recreate
+    spec:
+      containers:
+        - name: obito
+          image: shaikmustafa/cycle
+          ports:
+            - containerPort: 80
+  
