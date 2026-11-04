@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-rolling
+  namespace: dev-ns
+  labels:
+   app: rolling-update
+spec:
+  replicas: 3
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  revisionHistoryLimit: 8
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: rolling-update
+  template:
+    metadata:
+      labels:
+        app: rolling-update
+    spec:
+       containers:
+         - name: obito
+           image: shaikmustafa/dm
+           ports:
+            - containerPort: 80
