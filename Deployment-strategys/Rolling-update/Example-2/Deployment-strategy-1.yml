@@ -5,6 +5,8 @@ metadata:
   namespace: dev-ns
   labels:
     app: rolling-update
+  annotations:
+    change-cause: "Initial deployment with dm application"
 spec:
   replicas: 3
   strategy:
