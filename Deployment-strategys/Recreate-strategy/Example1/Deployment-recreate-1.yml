@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-recreate
+  namespacce: dev-ns
+  annotations:
+    change-cause: "deployment withh dm application"
+  labels:
+    app: recreate
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 5
+  minReadySeconds: 5 
+  selector:
+    matchLabels:
+      app: recreate
+  template:
+    metadata:
+      labels:
+        app: recreate
+    spec:
+      containers:
+        - name: obito
+          image: shaikmustafa/dm
+          ports:
+            - containerPort: 80
