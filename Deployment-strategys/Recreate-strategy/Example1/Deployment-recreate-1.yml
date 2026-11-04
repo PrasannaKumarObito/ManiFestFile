@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dep-recreate
-  namespacce: dev-ns
+  namespace: dev-ns
   annotations:
     change-cause: "deployment withh dm application"
   labels:
