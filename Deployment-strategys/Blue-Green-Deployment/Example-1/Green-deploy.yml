@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-dep
+  namespace: dev-ns
+  annotations:
+    kubernetes.io/change-cause: "Deployment with Cycle application"
+spec:
+  selector:
+    matchLabels:
+      app: green
+  template:
+    metadata:
+      labels:
+        app: green
+    spec:
+      containers:
+      - name: obito
+        image: shaikmustafa/cycle
+        ports:
+        - containerPort: 80
