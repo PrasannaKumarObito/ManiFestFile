@@ -12,7 +12,7 @@ spec:
   revisionHistoryLimit: 8
   minReadySeconds: 5
   selector:
-    macthLabels:
+    matchLabels:
       app: recreate
   template:
     metadata:
