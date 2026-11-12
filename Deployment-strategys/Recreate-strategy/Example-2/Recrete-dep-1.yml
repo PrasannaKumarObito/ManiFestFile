@@ -1,0 +1,26 @@
+apiVesrsion: apps/v1
+kind: Deployment
+metadata:
+  name: recreate-dep
+  namespace: dev-ns
+  annotations:
+    kubernetes.io/change-cause: "Deployment with DM application"
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 8
+  minReadySeconds: 5
+  selector:
+    macthLabels:
+      app: recreate
+  template:
+    metadata:
+      labels:
+        app: recreate
+    spec:
+      containers:
+        - name: obito
+          image: shaikmustafa/dm
+          ports:
+            - containerPort: 80
