@@ -6,8 +6,8 @@ metadata:
   annotations:
     kubernetes.io/change-cause: "Deployment with DM application"
 spec:
+  replicas: 4
   selector:
-    replicas: 4
     matchLabels:
       app: blue-green
       version: blue
