@@ -6,6 +6,7 @@ metadata:
   annotations:
     kubernetes.io/change-cause: "Deployment with Cycle application"
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app:  blue-green
