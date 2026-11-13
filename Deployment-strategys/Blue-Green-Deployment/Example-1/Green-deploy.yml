@@ -8,11 +8,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: green
+      app:  blue-green
+      version: green
   template:
     metadata:
       labels:
-        app: green
+        app: blue-green
+        version: green
     spec:
       containers:
       - name: obito
