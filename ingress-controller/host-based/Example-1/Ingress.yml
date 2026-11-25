@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: obito.com
+  - host: abcd4608133eb494d9cfe072945e9dc0-572367022.us-east-1.elb.amazonaws.com
     http:
       paths:
       - pathType: Prefix
