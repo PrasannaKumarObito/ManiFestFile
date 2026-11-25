@@ -14,4 +14,4 @@ spec:
           service:
             name: ingress-deployment-svc
             port: 
-              number: 
+              number: 80
