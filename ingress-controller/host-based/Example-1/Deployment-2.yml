@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-deployment-pod-2
+  namespace: dev-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deployment-2
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: deployment-2
+        version: v1
+    spec:
+      containers:
+        - name: obito-2
+          image: shaikmustafa/dm
+          ports:
+            - containerPort: 80
+            

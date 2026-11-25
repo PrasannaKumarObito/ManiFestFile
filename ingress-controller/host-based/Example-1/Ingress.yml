@@ -16,3 +16,13 @@ spec:
             name: ingress-deployment-svc
             port: 
               number: 80
+  - host: obito
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: ingress-deployment-svc-2
+            port: 
+              number: 80
